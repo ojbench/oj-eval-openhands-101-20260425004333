@@ -1,19 +1,20 @@
+// Solution for ACMOJ 2866 - TOmorrow的指针
+// Computes minimal positive seconds s until hour = minute = second in custom time system.
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
-using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
     long long a, b, c, d, e, f;
-    if (!(cin >> a >> b >> c >> d >> e >> f)) return 0;
+    if (!(std::cin >> a >> b >> c >> d >> e >> f)) return 0;
 
     const long long ab = a * b;
     const long long day = ab * c;
     const long long Tcur = f * ab + e * a + d;
-    const long long limit = min({a, b, c});
+    const long long limit = std::min({a, b, c});
 
     long long best = day; // strictly positive and < day
     for (long long x = 0; x < limit; ++x) {
@@ -30,6 +31,6 @@ int main() {
         if (diff < best) best = diff;
     }
 
-    cout << best << '\n';
+    std::cout << best << '\n';
     return 0;
 }
