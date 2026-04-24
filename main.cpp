@@ -14,7 +14,7 @@ int main() {
     const long long ab = a * b;
     const long long day = ab * c;
     const long long Tcur = f * ab + e * a + d;
-    const long long limit = std::min({a, b, c});
+    const long long limit = std::min(std::min(a, b), c);
 
     long long best = day; // strictly positive and < day
     for (long long x = 0; x < limit; ++x) {
